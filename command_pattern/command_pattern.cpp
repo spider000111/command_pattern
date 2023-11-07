@@ -9,16 +9,18 @@
 
 int main()
 {
-    std::shared_ptr<light_command> room1 = std::make_shared<light_command>("room1");
-    std::shared_ptr<light_command> room2 = std::make_shared<light_command>("room2");
-    std::shared_ptr<light_command> room3 = std::make_shared<light_command>("room3");
-    std::shared_ptr<light_command> room4 = std::make_shared<light_command>("room4");
+    std::shared_ptr<light_command> room1_light1 = std::make_shared<light_command>("room1_light1 pass");
+    std::shared_ptr<light_command> room1_light2 = std::make_shared<light_command>("room1_light2 pass");
+    std::shared_ptr<light_command> room2_light1 = std::make_shared<light_command>("room2_light1 pass");
+    std::shared_ptr<light_command> room2_light2 = std::make_shared<light_command>("room2_light2 pass");
 
 
-    invoker inv(room1, room2, room3, room4);
-    inv.execute_all();
-    inv.unexecute_all();
+    invoker remote(room1_light1, room1_light2, room2_light1, room2_light2);
+    remote.execute_all();
+    remote.unexecute_all();
 
+    remote.button1_on();
+    remote.button1_off();
 
 }
 

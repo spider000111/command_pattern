@@ -1,14 +1,15 @@
 #pragma once
 #include "ICommand.h"
+#include <iostream>
 
 class invoker
 {
-	ICommand* on;
-	ICommand* off;
-	ICommand* up;
-	ICommand* down;
+	const std::shared_ptr<ICommand> on;
+	const std::shared_ptr<ICommand> off;
+	const std::shared_ptr<ICommand> up;
+	const std::shared_ptr<ICommand> down;
 public:
-	invoker(ICommand* a, ICommand* b, ICommand* c, ICommand* d) :on(a),off(b),up(c),down(d) {}
+	invoker(std::shared_ptr<ICommand> a, std::shared_ptr<ICommand> b, std::shared_ptr<ICommand> c, std::shared_ptr<ICommand>d) :on(a),off(b),up(c),down(d) {}
 
 	
 

@@ -9,13 +9,13 @@
 
 int main()
 {
-    printf("hello world\n");
-    light_command room1("room1");
-    light_command room2("room2");
-    light_command room3("room3");
-    light_command room4("room4");
+    std::shared_ptr<light_command> room1 = std::make_shared<light_command>("room1");
+    std::shared_ptr<light_command> room2 = std::make_shared<light_command>("room2");
+    std::shared_ptr<light_command> room3 = std::make_shared<light_command>("room3");
+    std::shared_ptr<light_command> room4 = std::make_shared<light_command>("room4");
 
-    invoker inv(&room1, &room2, &room3, &room4);
+
+    invoker inv(room1, room2, room3, room4);
     inv.execute_all();
     inv.unexecute_all();
 
